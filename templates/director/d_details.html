@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+    <header class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h1>{{ director.d_name }}</h1>
+                <p class="lead">IMDB Credit: {{ director.weight }}</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-md-4 col-md-offset-1">
+                <p>
+                    {{ director.about|truncatewords:40 }}
+                </p>
+
+
+                <a href="{{ director.director_link }}">For More Info</a></strong></em>
+
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+                <figure class="text-center">
+                    <img src="{{ director.d_img }}" alt="Image" class="img-thumbnail" />
+                </figure>
+            </div>
+
+        </div>
+
+        <hr />
+
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+
+
+{% block content %}
+
+
+    <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+
+            <!-- Title -->
+            <h1 class="mt-4">{{ actor.s_name }}</h1>
+
+            <hr>
+
+            <!-- Genres -->
+
+            {% for genre in detail.genres.all %}
+                <span class="badge badge-info">{{ genre  }} </span>
+            {% endfor %}
+
+            <hr>
+
+            <!-- Preview Image -->
+
+            <div class="text-center">
+                <img class="img-fluid rounded" src="{{ actor.star_img }}" alt="Responsive image" width="200px" height="200px" >
+            </div>
+
+
+            <hr>
+
+            <!-- Post Content -->
+            <h2>Actors Information</h2>
+            <hr>
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td>{{ actor.s_name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">IMDB Credit</th>
+                    <td>{{ actor.weight }}</td>
+
+                </tr>
+
+                <tr>
+                    <th scope="row">Instagram Followers</th>
+                    <td>{{ actor.insta_followers|intcomma}}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Info</th>
+                    <td>{{ actor.about|truncatewords:40}}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Links</th>
+                    <td><a href="{{ actor.star_link }}">IMDB</a>
+                        <a href="{{ actor.star_insta }}">Instagram</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <hr>
+        <div id="disqus_thread"></div>
+				<script>
+				/**
+				*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+				*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+				/*
+				var disqus_config = function () {
+				this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+				this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+				};
+				*/
+				(function() { // DON'T EDIT BELOW THIS LINE
+				var d = document, s = d.createElement('script');
+				s.src = 'https://djangoblog-2.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+				})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		</div>
+
+
+        </div>
+
+
+
+    </div>
+
+{% endblock %}

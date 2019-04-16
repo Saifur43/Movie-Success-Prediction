@@ -1,0 +1,1 @@
+Practise Sessions on Django 2

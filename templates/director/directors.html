@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1 class="text-primary">Directors</h1>
+    <hr>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+
+                {% for director in directors %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="{{ director.d_img }}" alt="Card image cap" height="500">
+                            <div class="card-body">
+                                <p class="card-text text-primary">{{ director.d_name }}</p>
+                                <p class="card-text">{{ director.about|truncatewords:35 }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{% url 'directors_details' director.id %}" class="btn btn-outline-primary" role="button" aria-pressed="true">More Info</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+        <div class="pagination justify-content-center">
+            {% if directors.has_other_pages %}
+                <ul class="pagination">
+                    {%  if directors.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ directors.previous_page_number }}">&laquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">&laquo;</a>
+                        </li>
+                    {% endif %}
+                    {% for i in directors.paginator.page_range %}
+                        {% if actors.number == i %}
+                            <li class="page-item active">
+                                <a class="page-link">{{ i }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                            </li>
+                        {% endif %}
+
+                    {% endfor %}
+                    {%  if actors.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ directors.next_page_number }}">&raquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">&raquo;</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}
