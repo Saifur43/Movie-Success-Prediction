@@ -1,4 +1,4 @@
-# iWeather
+# Movie Success Prediction
 I have a model to predict the success and failure of the upcoming movies based on several attributes. Some of the criteria in calculating movie success included budget, actors, director, producer, set locations, trailer views, Wikipedia views etc.
 
   
