@@ -1,5 +1,5 @@
 # Movie Success Prediction
-I have a model to predict the success and failure of the upcoming movies based on several attributes. Some of the criteria in calculating movie success included budget, actors, director, producer, set locations, trailer views, Wikipedia views etc.
+I have a model to predict the success and failure of the upcoming movies based on several attributes. Some of the criteria in calculating movie success include budget, actors, director, producer, set locations, trailer views, Wikipedia views etc.
 
   
   
@@ -22,7 +22,7 @@ I have a model to predict the success and failure of the upcoming movies based o
 
 ### Installation
 
-iWeather requires [Python](https://python.org)3+ to run.
+MSP requires [Python](https://python.org)3+ to run.
 
 Install the dependencies 
 
